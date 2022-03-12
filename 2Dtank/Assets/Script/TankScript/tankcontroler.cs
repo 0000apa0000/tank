@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class tankcontroler : MonoBehaviour
 {
-
+    public Rigidbody2D bullet;
     Rigidbody2D rigid;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,13 @@ public class tankcontroler : MonoBehaviour
         Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigid.velocity = direction * 3;
 
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Rigidbody2D fire = Instantiate(bullet, transform.position, transform.rotation) as Rigidbody2D;
+            Vector2 firedirection = transform.TransformDirection(Vector2.up);
+            fire.AddForce(firedirection * 100);
+        }
     }
 
  
