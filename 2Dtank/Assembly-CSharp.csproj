@@ -53,7 +53,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\TankScript\headtank.cs" />
      <Compile Include="Assets\Script\TankScript\tankcontroler.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Examples\2D Example\Player2DExample.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Examples\3D Example\Player3DExample.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Base\Joystick.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\FixedButton.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\FixedTouchField.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
+     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/tank/2Dtank/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
