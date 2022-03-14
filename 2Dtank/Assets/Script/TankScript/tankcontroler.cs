@@ -26,7 +26,9 @@ public class tankcontroler : MonoBehaviour
             Rigidbody2D fire = Instantiate(bullet, shoot.transform.position, shoot.transform.rotation) as Rigidbody2D;
             Vector2 firedirection = transform.TransformDirection(Vector2.up);
             fire.AddForce(firedirection * 1000);
+            
         }
+        
     }
 
  
