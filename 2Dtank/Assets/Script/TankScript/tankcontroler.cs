@@ -5,8 +5,11 @@ using UnityEngine;
 public class tankcontroler : MonoBehaviour
 {
     public Rigidbody2D bullet;
+    public float speed;
     Rigidbody2D rigid;
+    public Joystick joustic;
     public Transform shoot;
+    Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,18 +20,23 @@ public class tankcontroler : MonoBehaviour
     void Update()
     {
 
-        Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rigid.velocity = direction * 3;
+   direction = new Vector2(joustic.Horizontal, joustic.Vertical);
+        
+
+
+    }
+    void FixedUpdate()
+    {
+        rigid.velocity = direction * speed * Time.fixedDeltaTime;
 
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Rigidbody2D fire = Instantiate(bullet, shoot.transform.position, shoot.transform.rotation) as Rigidbody2D;
-            Vector2 firedirection = transform.TransformDirection(Vector2.up);
-            fire.AddForce(firedirection * 1000);
-            
+            bullet = Instantiate(bullet, shoot.transform.position, Quaternion.identity) as Rigidbody2D;
+
+            bullet.AddForce(Vector2.up * 1000);
+
         }
-        
     }
 
  
