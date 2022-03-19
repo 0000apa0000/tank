@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class tankcontroler : MonoBehaviour
 {
-    public Rigidbody2D bullet;
-    public float speed;
+    public GameObject bulet;
+    public float speed , speedrot;
     Rigidbody2D rigid;
     public Joystick joustic;
-    public Transform shoot;
-    Vector2 direction;
+    public Transform shootpos;
+    Vector2 direction, rotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,7 @@ public class tankcontroler : MonoBehaviour
     {
 
    direction = new Vector2(joustic.Horizontal, joustic.Vertical);
+     
         
 
 
@@ -28,15 +29,9 @@ public class tankcontroler : MonoBehaviour
     void FixedUpdate()
     {
         rigid.velocity = direction * speed * Time.fixedDeltaTime;
+        transform.rotation = Quaternion.Slerp(transform.rotation , Quaternion.LookRotation(transform.forward, direction) , speedrot*Time.fixedDeltaTime );
+      
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            bullet = Instantiate(bullet, shoot.transform.position, Quaternion.identity) as Rigidbody2D;
-
-            bullet.AddForce(Vector2.up * 1000);
-
-        }
     }
 
  

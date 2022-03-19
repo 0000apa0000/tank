@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class headtank : MonoBehaviour
 {
-    public GameObject Headtank;
+    public float rotspeed;
     public Joystick joystick;
     Vector2 rot;
 
@@ -19,6 +19,10 @@ public class headtank : MonoBehaviour
     {
         rot = new Vector2(joystick.Horizontal, joystick.Vertical);
 
-        Headtank.transform.rotation = Quaternion.LookRotation(transform.forward, rot);
+        
+    }
+    void FixedUpdate()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(transform.forward, rot) , rotspeed * Time.fixedDeltaTime);
     }
 }
